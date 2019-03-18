@@ -6,39 +6,37 @@ import {
   CardFooter,
   CardTitle,
   Container,
-  Col,
-  FormGroup,
-  Input
+  Col
 } from "reactstrap";
 
-import { Button } from "components";
+import { Link } from "react-router-dom";
 
-import avatar from "assets/img/emilyz.jpg";
+import avatar from "assets/img/logo.png";
 
-import bgImage from "assets/img/bg13.jpg";
+import bgImage from "assets/img/logo.png";
 
 class LockScreenPage extends React.Component {
   render() {
     return (
       <div>
+        <br />
         <div className="full-page-content">
           <div className="lock-page">
             <Container>
               <Col lg={4} md={8} xs={12} className="mr-auto ml-auto">
                 <Card className="card-lock text-center">
                   <CardHeader>
-                    <img src={avatar} alt="avatar-img" />
+                    <img
+                      style={{ marginTop: "10px" }}
+                      src={avatar}
+                      alt="avatar-img"
+                    />
                   </CardHeader>
                   <CardBody>
-                    <CardTitle tag="h4">Joe Gardner</CardTitle>
-                    <FormGroup>
-                      <Input type="password" placeholder="Enter Password..." />
-                    </FormGroup>
+                    <CardTitle tag="h4">Ups! ocurrio un error</CardTitle>
                   </CardBody>
                   <CardFooter>
-                    <Button color="primary" size="lg" round>
-                      Unlock
-                    </Button>
+                    <Link to="/">Ir a pagina principal</Link>
                   </CardFooter>
                 </Card>
               </Col>
