@@ -21,7 +21,7 @@ class App extends Component {
         {!token && !user ? (
           <Redirect to="/login" />
         ) : (
-          <Redirect to="/sidebar" />
+          <Redirect to="/dashboard" />
         )}
       </div>
     );

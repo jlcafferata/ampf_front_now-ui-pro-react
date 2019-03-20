@@ -38,7 +38,7 @@ import shirt from "assets/img/balmain.jpg";
 import swim from "assets/img/prada.jpg";
 
 import { table_data } from "variables/general.jsx";
-
+import logo from "assets/img/LogoAmpf1.JPG";
 var mapData = {
   AU: 760,
   BR: 550,
@@ -53,8 +53,8 @@ var mapData = {
   US: 2920
 };
 
-class Dashboard extends React.Component {
-  createTableData() {
+class DashboardView extends React.Component {
+  /*createTableData() {
     var tableRows = [];
     for (var i = 0; i < table_data.length; i++) {
       tableRows.push(
@@ -71,67 +71,48 @@ class Dashboard extends React.Component {
       );
     }
     return tableRows;
-  }
+  }*/
+
   render() {
     return (
       <div>
-        <PanelHeader
-          size="lg"
-          content={
-            <Line
-              data={dashboardPanelChart.data}
-              options={dashboardPanelChart.options}
-            />
-          }
-        />
+        <PanelHeader size="sm" content={logo} />
         <div className="content">
           <Row>
             <Col xs={12} md={12}>
-              <Card className="card-stats card-raised">
-                <CardBody>
-                  <Row>
-                    <Col xs={12} md={3}>
-                      <Statistics
-                        iconState="primary"
-                        icon="ui-2_chat-round"
-                        title="859"
-                        subtitle="Messages"
-                      />
-                    </Col>
-                    <Col xs={12} md={3}>
+              <Row>
+                <Col xs={12} md={4}>
+                  <Card
+                    className="card-stats card-raisedcard-chart"
+                    onClick={this.tryAyudasEconomicas}
+                  >
+                    <CardHeader>
+                      <CardCategory>Servicios financieros</CardCategory>
+                      <CardTitle tag="h3">Ayudas economicas</CardTitle>
+
                       <Statistics
                         iconState="success"
                         icon="business_money-coins"
-                        title={
-                          <span>
-                            <small>$</small>3,521
-                          </span>
-                        }
-                        subtitle="Today Revenue"
-                      />
-                    </Col>
-                    <Col xs={12} md={3}>
-                      <Statistics
-                        iconState="info"
-                        icon="users_single-02"
-                        title="562"
-                        subtitle="Customers"
-                      />
-                    </Col>
-                    <Col xs={12} md={3}>
-                      <Statistics
-                        iconState="danger"
-                        icon="objects_support-17"
                         title="353"
                         subtitle="Support Requests"
                       />
-                    </Col>
-                  </Row>
-                </CardBody>
-              </Card>
+                    </CardHeader>
+                    <CardFooter>
+                      <Stats>
+                        {[
+                          {
+                            i: "now-ui-icons arrows-1_refresh-69",
+                            t: "Just Updated"
+                          }
+                        ]}
+                      </Stats>
+                    </CardFooter>
+                  </Card>
+                </Col>
+              </Row>
             </Col>
           </Row>
-          <Row>
+          {/*<Row>
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
@@ -275,7 +256,7 @@ class Dashboard extends React.Component {
                 </CardFooter>
               </Card>
             </Col>
-          </Row>
+                  </Row>
           <Row>
             <Col xs={12} md={12}>
               <Card>
@@ -371,11 +352,11 @@ class Dashboard extends React.Component {
                 </CardBody>
               </Card>
             </Col>
-          </Row>
+                  </Row>*/}
         </div>
       </div>
     );
   }
 }
 
-export default Dashboard;
+export default DashboardView;

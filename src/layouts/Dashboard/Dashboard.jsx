@@ -7,6 +7,8 @@ import { Header, Footer, Sidebar } from "components";
 
 import dashboardRoutes from "routes/dashboard.jsx";
 
+import DashboardView from "views/Dashboard/Dashboard.jsx";
+
 var ps;
 
 class Dashboard extends React.Component {
@@ -37,26 +39,7 @@ class Dashboard extends React.Component {
         <Sidebar {...this.props} routes={dashboardRoutes} />
         <div className="main-panel" ref="mainPanel">
           <Header {...this.props} />
-          <Switch>
-            {dashboardRoutes.map((prop, key) => {
-              if (prop.collapse) {
-                return prop.views.map((prop2, key2) => {
-                  return (
-                    <Route
-                      path={prop2.path}
-                      component={prop2.component}
-                      key={key2}
-                    />
-                  );
-                });
-              }
-              if (prop.redirect)
-                return <Redirect from={prop.path} to={prop.pathTo} key={key} />;
-              return (
-                <Route path={prop.path} component={prop.component} key={key} />
-              );
-            })}
-          </Switch>
+          <DashboardView />
           {// we don't want the Footer to be rendered on full screen maps page
           this.props.location.pathname.indexOf("full-screen-maps") !==
           -1 ? null : (

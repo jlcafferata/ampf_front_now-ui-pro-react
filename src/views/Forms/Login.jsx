@@ -94,40 +94,38 @@ class Login extends React.Component {
         {loading && <div> loading... </div>}
         {error && <div>{error}</div>}
         <br />
-        {user ? (
-          <Redirect to="/" />
-        ) : (
+        {(user)?(<Redirect to="/"/>):(
           <div className="content">
-            <Row>
-              <Col sm="12" md={{ size: 6, offset: 3 }}>
-                <Card>
-                  <CardHeader>
-                    <CardTitle tag="h4">
-                      <img src={logo} alt="AMPF" />
-                    </CardTitle>
-                  </CardHeader>
-                  <CardBody>
-                    <Form method="POST" onSubmit={this.handlerSubmit}>
-                      <FormInputs
-                        // ncols={["col-12", "col-12", "col-12"]}
-                        proprieties={[
-                          {
-                            label: "Email address",
-                            inputProps: {
-                              type: "email",
-                              name: "txt_email",
-                              onChange: this.handlerChange
-                            }
-                          },
-                          {
-                            label: "Password",
-                            inputProps: {
-                              type: "password",
-                              name: "txt_password",
-                              onChange: this.handlerChange
-                            }
+          <Row>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h4">
+                    <img src={logo} alt="AMPF" />
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <Form method="POST" onSubmit={this.handlerSubmit}>
+                    <FormInputs
+                      // ncols={["col-12", "col-12", "col-12"]}
+                      proprieties={[
+                        {
+                          label: "Email address",
+                          inputProps: {
+                            type: "email",
+                            name: "txt_email",
+                            onChange: this.handlerChange
                           }
-                          /*{
+                        },
+                        {
+                          label: "Password",
+                          inputProps: {
+                            type: "password",
+                            name: "txt_password",
+                            onChange: this.handlerChange
+                          }
+                        }
+                        /*{
                           label: "Subscribe to newsletter",
                           labelProps: {
                             check: true
@@ -140,42 +138,42 @@ class Login extends React.Component {
                             className: "mt-3"
                           }
                         }*/
-                        ]}
-                      />
-                      <Button type="submit" color="primary">
-                        Submit
-                      </Button>
-                      <Link to="/remember" className="btn btn-link">
-                        Olvide la contraseña
-                      </Link>
-                      <Link to="/register" className="btn btn-link">
-                        Registrar
-                      </Link>
-                    </Form>
+                      ]}
+                    />
+                    <Button type="submit" color="primary">
+                      Submit
+                    </Button>
+                    <Link to="/remember" className="btn btn-link">
+                      Olvide la contraseña
+                    </Link>
+                    <Link to="/register" className="btn btn-link">
+                      Registrar
+                    </Link>
+                  </Form>
 
-                    <Row>
-                      <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        {this.state.isSignedIn ? (
-                          <div>SignedInd</div>
-                        ) : (
-                          <StyledFirebaseAuth
-                            uiConfig={this.uiConfig}
-                            firebaseAuth={firebase.auth()}
-                          />
-                        )}
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col sm="12" md={{ size: 8, offset: 8 }} />
-                    </Row>
-                  </CardBody>
-                  <CardFooter />
-                </Card>
-              </Col>
-            </Row>
-          </div>
-        )}
-      </div>
+                  <Row>
+                    <Col sm="12" md={{ size: 8, offset: 2 }}>
+                      {this.state.isSignedIn ? (
+                        <div>SignedInd</div>
+                      ) : (
+                        <StyledFirebaseAuth
+                          uiConfig={this.uiConfig}
+                          firebaseAuth={firebase.auth()}
+                        />
+                      )}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col sm="12" md={{ size: 8, offset: 8 }} />
+                  </Row>
+                </CardBody>
+                <CardFooter />
+              </Card>
+            </Col>
+          </Row>
+        </div>
+        )}  
+        </div>
     );
   }
 }
