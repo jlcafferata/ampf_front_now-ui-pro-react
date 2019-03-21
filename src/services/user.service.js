@@ -32,13 +32,13 @@ function login(email, password) {
       .then(handleResponse)
       .then(user => {
         // login successful if there's a jwt token in the response
-        console.log("success: " + user);
+        console.log("success: ");
+        console.dir(user);
         if (user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          user.email = email;
           dispatch({ type: uc.LOGIN_SUCCESS, user });
           dispatch(gs.successRequest());
-          //localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(user));
         }
         return user;
       })
@@ -50,6 +50,7 @@ function login(email, password) {
 
 function logout() {
   // remove user from local storage to log user out
+  dispatch({ type: uc.LOGIN_SUCCESS, user });
   localStorage.removeItem("user");
 }
 

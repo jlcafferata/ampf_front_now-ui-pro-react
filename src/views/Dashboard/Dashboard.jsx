@@ -1,57 +1,9 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  Row,
-  Col,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Table
-} from "reactstrap";
-// react plugin used to create charts
-import { Line } from "react-chartjs-2";
-// react plugin for creating vector maps
-import { VectorMap } from "react-jvectormap";
+import { Card, CardHeader, CardFooter, CardTitle, Row, Col } from "reactstrap";
 
-import {
-  PanelHeader,
-  Stats,
-  Statistics,
-  CardCategory,
-  Progress
-} from "components";
+import { PanelHeader, Stats, Statistics, CardCategory } from "components";
 
-import {
-  dashboardPanelChart,
-  dashboardActiveUsersChart,
-  dashboardSummerChart,
-  dashboardActiveCountriesCard
-} from "variables/charts.jsx";
-
-import jacket from "assets/img/saint-laurent.jpg";
-import shirt from "assets/img/balmain.jpg";
-import swim from "assets/img/prada.jpg";
-
-import { table_data } from "variables/general.jsx";
 import logo from "assets/img/LogoAmpf1.JPG";
-var mapData = {
-  AU: 760,
-  BR: 550,
-  CA: 120,
-  DE: 1300,
-  FR: 540,
-  GB: 690,
-  GE: 200,
-  IN: 200,
-  RO: 600,
-  RU: 300,
-  US: 2920
-};
 
 class DashboardView extends React.Component {
   /*createTableData() {

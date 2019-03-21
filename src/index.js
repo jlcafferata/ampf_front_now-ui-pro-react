@@ -11,17 +11,18 @@ import App from "App.jsx";
 //import indexRoutes from "routes/index.jsx";
 import { store } from "./helpers/store";
 import Login from "./views/Forms/Login.jsx";
+import Logout from "./views/Forms/Logout.jsx";
 import RegisterPage from "./views/Pages/RegisterPage.jsx";
 import RememberPage from "./views/Pages/RememberPage.jsx";
 //import DashBoard from "./views/Dashboard/Dashboard.jsx";
 import Dashboard from "./layouts/Dashboard/Dashboard.jsx";
 
 import LockScreenPage from "./views/Pages/LockScreenPage.jsx";
-
 //const hist = createBrowserHistory();
 
-import { configureFakeBackend } from "./helpers";
+/*import { configureFakeBackend } from "./helpers";
 configureFakeBackend();
+*/
 
 ReactDOM.render(
   <Provider store={store}>
@@ -32,6 +33,7 @@ ReactDOM.render(
         <Route path="/register" component={RegisterPage} />
         <Route path="/remember" component={RememberPage} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/logout" component={Logout} />
         <Route component={LockScreenPage} />
       </Switch>
     </BrowserRouter>

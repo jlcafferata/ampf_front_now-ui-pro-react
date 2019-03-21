@@ -8,9 +8,10 @@ import PropTypes from "prop-types";
 class App extends Component {
   componentDidMount() {
     store.subscribe(() => {
-      const user = store.getState().get("user");
+      console.log(store.getState());
+      const { user, token } = store.getState().authentication;
       //const token = store.getState().get("token");
-      this.setState({ user });
+      this.setState({ user, token });
     });
   }
   render() {
@@ -29,12 +30,13 @@ class App extends Component {
 }
 
 App.propTypes = {
-  token: PropTypes.string
+  token: PropTypes.string,
+  user: PropTypes.object
 };
 const mapStateToProps = state => {
   const user = state.authentication.user || state.user;
   const token = state.authentication.token;
-  const { loggedIn } = state.authentication.user;
+  const { loggedIn } = state.authentication.user || "";
   const { loading, error } = state.general;
   return {
     loggedIn,

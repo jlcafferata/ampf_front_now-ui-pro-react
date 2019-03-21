@@ -52,9 +52,7 @@
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "lint:check": "eslint . --ext=js,jsx;  exit 0",
-    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
-    "start-webpack": "webpack-dev-server --host 192.168.0.17 --port 8080 --open",
-    "build-webpack": "webpack -p"
+    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0"
   },
   "optionalDependencies": {
     "babel-eslint": "^7.2.3",
@@ -78,8 +76,6 @@
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "redux-thunk": "^2.3.0"
   }
 }
